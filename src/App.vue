@@ -1,5 +1,8 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
+import { useAuth0 } from "@auth0/auth0-vue";
+
+const { loginWithRedirect, user, isAuthenticated } = useAuth0();
 
 const navigation = [
   { name: 'Product', href: '#' },
@@ -22,8 +25,9 @@ const navigation = [
           <RouterLink v-for="item in navigation" :key="item.name" :to="item.href" class="text-sm font-semibold leading-6 text-gray-900">{{ item.name }}</RouterLink>
         </div>
         <div class="flex flex-1 justify-end">
-          <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Log in
+          <a v-if="!isAuthenticated" href="#" @click="loginWithRedirect()" class="text-sm font-semibold leading-6 text-gray-900">Log in
             <span aria-hidden="true">&rarr;</span></a>
+          <RouterLink v-else to="/profile" class="text-sm font-semibold leading-6 text-gray-900">Hi, {{ user.name }}</RouterLink>
         </div>
       </nav>
     </header>
