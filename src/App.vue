@@ -15,8 +15,7 @@ const navigation = [
       <nav class="flex items-center justify-between p-6 px-8" aria-label="Global">
         <div class="flex flex-1">
           <a href="#" class="-m-1.5 p-1.5">
-            <span class="sr-only">Your Company</span>
-            <img class="h-8 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600" alt="" />
+            <img class="h-8 w-auto" src="/favicon.png" alt="" />
           </a>
         </div>
         <div class="flex gap-x-12">

@@ -10,6 +10,7 @@
     "type-check": "vue-tsc --noEmit"
   },
   "dependencies": {
+    "@auth0/auth0-vue": "^2.2.0",
     "@headlessui/vue": "^1.7.12",
     "@heroicons/vue": "^2.0.17",
     "vue": "^3.2.47",
