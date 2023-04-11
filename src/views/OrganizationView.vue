@@ -16,7 +16,8 @@ const roles = OrganizationsDatabase.filter(org => userOrgs.includes(org.id));
 roles.push({
   id: '',
   name: 'Personal Account',
-  image: user.value.picture as string
+  image: user.value.picture as string,
+  role: 'personal'
 });
 
 // Check if "org_id" is present on ID Token and preselect the corresponding
