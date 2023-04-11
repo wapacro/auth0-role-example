@@ -5,10 +5,8 @@ import { useAuth0 } from "@auth0/auth0-vue";
 const { loginWithRedirect, user, isAuthenticated } = useAuth0();
 
 const navigation = [
-  { name: 'Product', href: '#' },
-  { name: 'Features', href: '#' },
-  { name: 'Marketplace', href: '#' },
-  { name: 'Company', href: '#' },
+  { name: 'Shop', href: '/shop' },
+  { name: 'Logout', href: '/logout' }
 ];
 </script>
 
@@ -21,13 +19,13 @@ const navigation = [
             <img class="h-8 w-auto" src="/favicon.png" alt="" />
           </a>
         </div>
-        <div class="flex gap-x-12">
+        <div class="flex gap-x-12" v-if="isAuthenticated">
           <RouterLink v-for="item in navigation" :key="item.name" :to="item.href" class="text-sm font-semibold leading-6 text-gray-900">{{ item.name }}</RouterLink>
         </div>
         <div class="flex flex-1 justify-end">
           <a v-if="!isAuthenticated" href="#" @click="loginWithRedirect()" class="text-sm font-semibold leading-6 text-gray-900">Log in
             <span aria-hidden="true">&rarr;</span></a>
-          <RouterLink v-else to="/profile" class="text-sm font-semibold leading-6 text-gray-900">Hi, {{ user.name }}</RouterLink>
+          <span v-else class="text-sm font-semibold leading-6 text-gray-900">Hi, {{ user.name }}</span>
         </div>
       </nav>
     </header>
